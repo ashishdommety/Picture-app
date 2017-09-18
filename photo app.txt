@@ -1,0 +1,10 @@
+steps: 
+
+1) nav bar
+2) Content
+3) Footer
+
+
+Content 
+	- Welcome
+	- Search Photos
