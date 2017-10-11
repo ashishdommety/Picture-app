@@ -1,8 +1,8 @@
-import React, {
-  Component
-} from 'react';
+import React, {Component} from 'react';
 // import
+import Navbar from "../Navbar/Navbar";
 import API from '../../API/api';
+import "./Photos.css";
 
 class Photos extends Component {
   constructor() {
@@ -27,9 +27,6 @@ class Photos extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    // var comp = (event.currentTarget).data('comp');
-    // console.log(event.target);
-    // console.log(this.state.searchQuery);
     if(this.state.searchQuery.length === 0){
       this.setState({
         searchQuery:'random stuff'
@@ -42,10 +39,6 @@ class Photos extends Component {
   }
 
   handleInputChange(event){
-    //this changes the state every time input is given
-
-    // QUESTION: Why does this not overwrite the existing value, and
-    //concatenate it instead?
     this.setState({
       searchQuery: event.target.value
     })
@@ -63,15 +56,11 @@ class Photos extends Component {
   render() {
     //since we're getting a response from an ajax, we first check if the image
     //is empty, or has changed
-    // console.log(this.state.image);
     if (this.state.image === '') {
-      return ( <div >
+      return ( <div>
+        <Navbar/>
         <h3> You can search for pictures here < /h3>
         <p> Click the button to get the pictures you want</p>
-         {
-          /* we need to bind this to the handleClick function so it's accessible
-                  in the click scope*/
-          }
         <form>
         <input value = {this.state.searchQuery}
         onChange = {this.handleInputChange}
@@ -84,9 +73,13 @@ class Photos extends Component {
       )
     } else {
       return ( <div>
-        <h3> These are pictures of {this.state.searchQuery} </h3> {
+        <Navbar/>
+        <h3> These are pictures of {this.state.searchQuery} </h3>
+        <a href="/photos">Search for something else?</a>
+        <br/>
+        {
           this.state.image.map(x =>
-            <img src = {x.previewURL}
+            <img className="searched_pics" src = {x.previewURL}
               alt = 'apple not found'/>
           )
         }

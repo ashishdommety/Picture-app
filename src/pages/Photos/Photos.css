@@ -1,0 +1,7 @@
+.searched_pics{
+  width:100px;
+  height:100px;
+  margin:10px;
+  overflow: hidden;
+  border-radius: 10px;
+}

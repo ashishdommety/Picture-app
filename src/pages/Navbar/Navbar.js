@@ -2,6 +2,8 @@ import React from 'react';
 // import {Link} from 'react-router-dom';
 
 const Navbar = props =>
-  <h3>This is a header </h3>;
+    <div>
+      <a href="/">Go back home</a>
+    </div>;
 
 export default Navbar;
