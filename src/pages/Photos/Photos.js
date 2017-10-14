@@ -79,8 +79,11 @@ class Photos extends Component {
         <br/>
         {
           this.state.image.map(x =>
-            <img className="searched_pics" src = {x.previewURL}
-              alt = 'apple not found'/>
+            <div className="searched_divs">
+              <img className="searched_pics" src = {x.previewURL}
+                alt = 'apple not found'/>
+              <p>Likes: {x.likes}</p>
+            </div>
           )
         }
         </div>
