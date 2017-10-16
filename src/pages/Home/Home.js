@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
+import "./Home.css";
 
 class Home extends Component{
   render(){
     return(
-      <div>
-        <h1> Welcome to the Photo App </h1>
-        <h2> You can search for pictures of anything here!</h2>
-        <p>Click on the search button to head to the search page</p>
-        <a href="/photos"> Search for Pictures</a>
+      <div className="home_content">
+        <h1>Picture Time</h1>
+        <h4> A place to look for any picture.</h4>
+        <a href="/photos"><button id="goto_search">Search for Pictures</button></a>
         {/*<img src='https://placeholdit.co//i/555x150' alt='apple here'/>*/}
       </div>
     )
