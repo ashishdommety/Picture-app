@@ -1,4 +1,9 @@
 body{
-  background-color: #DBCBD8;
+  background-color:#F2FDFF;
   text-align: center;
+}
+
+hr{
+  background-color: white;
+  opacity: 0.5;
 }

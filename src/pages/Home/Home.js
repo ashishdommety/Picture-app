@@ -6,6 +6,7 @@ class Home extends Component{
     return(
       <div className="home_content">
         <h1>Picture Time</h1>
+        <hr/>
         <h4> A place to look for any picture.</h4>
         <a href="/photos"><button id="goto_search">Search for Pictures</button></a>
         {/*<img src='https://placeholdit.co//i/555x150' alt='apple here'/>*/}

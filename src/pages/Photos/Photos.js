@@ -33,7 +33,7 @@ class Photos extends Component {
       });
     }
 
-    console.log(this.state.searchQuery.length);
+    // console.log(this.state.searchQuery.length);
     this.loadPictures(this.state.searchQuery);
     // console.log(this);
   }
@@ -59,33 +59,47 @@ class Photos extends Component {
     if (this.state.image === '') {
       return ( <div>
         <Navbar/>
-        <h3> You can search for pictures here < /h3>
-        <p> Click the button to get the pictures you want</p>
-        <form>
-        <input value = {this.state.searchQuery}
-        onChange = {this.handleInputChange}
-        name = 'search'
-        type='text'/>
-        <button onClick = {this.handleClick}> Get Pictures </button>
-        </form>
-
+          <div id="search_section">
+            <h4 className="search_title">Search below:</h4>
+            <hr/>
+            <form>
+            <input id="search_input"
+              value = {this.state.searchQuery}
+              onChange = {this.handleInputChange}
+              placeholder = "type search value here"
+              name = 'search'
+              type='text'/>
+            <button
+              id="search_button"
+              onClick = {this.handleClick}> Get Pictures
+            </button>
+            </form>
+          </div>
         </div>
       )
     } else {
       return ( <div>
         <Navbar/>
-        <h3> These are pictures of {this.state.searchQuery} </h3>
-        <a href="/photos">Search for something else?</a>
-        <br/>
-        {
-          this.state.image.map(x =>
-            <div className="searched_divs">
-              <img className="searched_pics" src = {x.previewURL}
-                alt = 'apple not found'/>
-              <p>Likes: {x.likes}</p>
-            </div>
-          )
-        }
+        <div id="search_section">
+          <h3 className="search_title"> Pictures of {this.state.searchQuery} </h3>
+          <hr/>
+          {
+            this.state.image.map(x =>
+              <div className="searched_divs">
+                <a href={x.pageURL} target="_blank">
+                  <img className="searched_pics" src = {x.previewURL}
+                    alt = 'apple not found'/>
+                  {/*<p>Likes: {x.likes}</p>
+                    use this value to sort by likes
+                    */}
+                </a>
+              </div>
+            )
+          }
+          <br/>
+          <a href="/photos"><button className="re_search">
+          Search for something else</button></a>
+        </div>
         </div>
       )
     }
