@@ -1,0 +1,13 @@
+.navigation{
+  margin-top: 30px;
+  text-align: left;
+}
+
+#nav_button{
+  border: none;
+  background-color: #101935;
+  color:white;
+  padding:10px;
+  border-radius: 10px;
+  cursor: pointer;
+}

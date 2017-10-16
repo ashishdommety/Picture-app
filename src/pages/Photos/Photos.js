@@ -83,7 +83,10 @@ class Photos extends Component {
         <div id="search_section">
           <h3 className="search_title"> Pictures of {this.state.searchQuery} </h3>
           <hr/>
-          {
+          {/*write conditional to handle no responses here*/
+            (!this.state.image.length) ?
+              <p>Pictures do not exist in the db</p>
+              :
             this.state.image.map(x =>
               <div className="searched_divs">
                 <a href={x.pageURL} target="_blank">
