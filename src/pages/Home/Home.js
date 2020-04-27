@@ -1,19 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
 
-class Home extends Component {
-  render() {
-    return (
-      <div className="home_content">
-        <h1>Picture Time</h1>
-        <hr />
-        <h4> A place to look for any picture.</h4>
-        <a href="/photos">
-          <button id="goto_search">Search for Pictures</button>
-        </a>
-      </div>
-    );
-  }
+function Home() {
+  return (
+    <div className="home_content">
+      <h1>Picture Time</h1>
+      <hr />
+      <h4> A place to look for any picture.</h4>
+      <a href="/photos">
+        <button id="goto_search">Search for Pictures</button>
+      </a>
+    </div>
+  );
 }
 
 export default Home;
