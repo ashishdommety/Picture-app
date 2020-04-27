@@ -10,10 +10,11 @@ export default function Photos() {
 
   function handleClick(event) {
     event.preventDefault();
-    if (searchQuery.length === 0) {
-      setSearchQuery("random stuff");
+    if (searchQuery.length > 0) {
+      loadPictures(searchQuery);
+    } else {
+      setError("Input can't be empty");
     }
-    loadPictures(searchQuery);
   }
 
   function handleInputChange(event) {
@@ -23,20 +24,21 @@ export default function Photos() {
   function loadPictures(searchName) {
     API.getPictures(searchName)
       .then((res) => {
-        setImages(res.data.hits);
+        if (res.data.hits.length > 0) {
+          setImages(res.data.hits);
+        } else {
+          setError("No images found.");
+        }
       })
       .catch((err) => console.log(err));
   }
-
-  useEffect(() => {
-    console.log(images);
-  });
 
   return !images.length ? (
     <SearchPictures
       searchQuery={searchQuery}
       handleInputChange={handleInputChange}
       handleClick={handleClick}
+      error={error}
     />
   ) : (
     <PictureDisplay searchQuery={searchQuery} images={images} />

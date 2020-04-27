@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../Navbar";
 import "./style.css";
 
 export default function SearchPictures(props) {
@@ -21,6 +21,7 @@ export default function SearchPictures(props) {
           <button id="search_button" onClick={props.handleClick}>
             Get Pictures
           </button>
+          <span className="error_message">{props.error}</span>
         </form>
       </div>
     </div>

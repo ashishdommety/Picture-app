@@ -26,3 +26,9 @@
 .search_title {
   color: #101935;
 }
+
+.error_message {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+}
