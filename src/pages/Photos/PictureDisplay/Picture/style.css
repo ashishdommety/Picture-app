@@ -1,7 +1,11 @@
-.searched_divs {
+.pic {
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
 }
 
-.searched_pics {
-  width: 100%;
-  margin: 10px 0px;
+@media only screen and (min-width: 600px) {
+  .pic {
+    width: 300px;
+  }
 }

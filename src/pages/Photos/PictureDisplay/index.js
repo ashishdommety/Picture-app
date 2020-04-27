@@ -15,7 +15,10 @@ export default function PictureDisplay(props) {
             <p>Pictures do not exist in the db</p>
           ) : (
             props.images.map((image) => (
-              <Picture pageURL={image.pageURL} previewURL={image.previewURL} />
+              <Picture
+                pageURL={image.pageURL}
+                previewURL={image.webformatURL}
+              />
             ))
           )}
         </div>
