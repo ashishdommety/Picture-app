@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -7,9 +8,9 @@ function Home() {
       <h1>Picture Time</h1>
       <hr />
       <h4> A place to look for any picture.</h4>
-      <a href="/photos">
+      <Link to="/photos">
         <button id="goto_search">Search for Pictures</button>
-      </a>
+      </Link>
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "../../Navbar";
 import Picture from "./Picture";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function PictureDisplay(props) {
+  console.log(props);
   return (
     <div>
       <Navbar />
@@ -14,8 +16,9 @@ export default function PictureDisplay(props) {
           {!props.images.length ? (
             <p>Pictures do not exist in the db</p>
           ) : (
-            props.images.map((image) => (
+            props.images.map((image, index) => (
               <Picture
+                key={index}
                 pageURL={image.pageURL}
                 previewURL={image.webformatURL}
               />
@@ -23,9 +26,9 @@ export default function PictureDisplay(props) {
           )}
         </div>
       </div>
-      <a href="/photos">
-        <button className="re_search">Search for something else</button>
-      </a>
+      <button className="re_search" onClick={() => props.resetSearch([])}>
+        Search for something else
+      </button>
     </div>
   );
 }

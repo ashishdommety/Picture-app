@@ -33,6 +33,11 @@ export default function Photos() {
       .catch((err) => console.log(err));
   }
 
+  function resetSearch() {
+    setImages([]);
+    setSearchQuery("");
+  }
+
   return !images.length ? (
     <SearchPictures
       searchQuery={searchQuery}
@@ -41,6 +46,10 @@ export default function Photos() {
       error={error}
     />
   ) : (
-    <PictureDisplay searchQuery={searchQuery} images={images} />
+    <PictureDisplay
+      searchQuery={searchQuery}
+      images={images}
+      resetSearch={resetSearch}
+    />
   );
 }
