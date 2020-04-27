@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
 import SearchPictures from "./SearchPictures";
 import PictureDisplay from "./PictureDisplay";
 import API from "../../API/api";
-import "./Photos.css";
 
 export default function Photos() {
   let [images, setImages] = useState([]);
