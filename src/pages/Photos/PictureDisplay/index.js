@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../../Navbar";
 import Picture from "./Picture";
-import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function PictureDisplay(props) {
