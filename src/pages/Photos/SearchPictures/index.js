@@ -6,7 +6,7 @@ export default function SearchPictures(props) {
   return (
     <div>
       <Navbar />
-      <div id="search_section">
+      <div id="search_form">
         <h4 className="search_title">Search below:</h4>
         <hr />
         <form>
@@ -14,7 +14,7 @@ export default function SearchPictures(props) {
             id="search_input"
             value={props.searchQuery}
             onChange={props.handleInputChange}
-            placeholder="type search value here"
+            placeholder="search for..."
             name="search"
             type="text"
           />
