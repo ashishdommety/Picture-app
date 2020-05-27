@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchPictures from "./SearchPictures";
 import PictureDisplay from "./PictureDisplay";
 import API from "../../API/api";

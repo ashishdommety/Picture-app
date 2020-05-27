@@ -4,7 +4,6 @@ import Picture from "./Picture";
 import "./style.css";
 
 export default function PictureDisplay(props) {
-  console.log(props);
   return (
     <div>
       <Navbar />
