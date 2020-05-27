@@ -15,6 +15,8 @@ afterEach(() => {
   container = null;
 });
 
-it("adds numbers", () => {
-  expect(1 + 1).toBe(2);
+it("renders", () => {
+  act(() => {
+    render(<Photos />, container);
+  });
 });
