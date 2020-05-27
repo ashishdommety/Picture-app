@@ -16,9 +16,36 @@ afterEach(() => {
   container = null;
 });
 
-it("renders", () => {
+it("renders with one image", () => {
   act(() => {
     let images = [
+      {
+        pageURL: "",
+        previewURL: "",
+      },
+    ];
+    render(<PictureDisplay images={images} />, container);
+  });
+});
+
+it("renders with no images", () => {
+  act(() => {
+    let images = [];
+    render(<PictureDisplay images={images} />, container);
+  });
+});
+
+it("renders with multiple images", () => {
+  act(() => {
+    let images = [
+      {
+        pageURL: "",
+        previewURL: "",
+      },
+      {
+        pageURL: "",
+        previewURL: "",
+      },
       {
         pageURL: "",
         previewURL: "",
