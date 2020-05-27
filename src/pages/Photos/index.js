@@ -30,7 +30,7 @@ export default function Photos() {
           setError("No images found.");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError("Network Error"));
   }
 
   function resetSearch() {

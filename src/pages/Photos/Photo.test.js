@@ -1,12 +1,20 @@
 import React from "react";
-import { configure, shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
 import Photos from "./index";
 
-configure({ adapter: new Adapter() });
+let container = null;
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
 
-describe("<Photos/>", () => {
-  it("renders all elements on Photospage", () => {
-    const Photospage = shallow(<Photos />);
-  });
+afterEach(() => {
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it("adds numbers", () => {
+  expect(1 + 1).toBe(2);
 });
