@@ -3,6 +3,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 import PictureDisplay from "./index";
+import Picture from "./Picture";
 
 let container = null;
 beforeEach(() => {
@@ -53,4 +54,20 @@ it("renders with multiple images", () => {
     ];
     render(<PictureDisplay images={images} />, container);
   });
+});
+
+it("tests reset button", () => {
+  let resetSearch = jest.fn();
+
+  act(() => {
+    render(<PictureDisplay images={[]} resetSearch={resetSearch} />, container);
+  });
+  const button = document.querySelector("[data-testid=search_again]");
+  expect(button.innerHTML).toBe("Search for something else");
+
+  act(() => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+
+  expect(resetSearch).toHaveBeenCalledTimes(1);
 });

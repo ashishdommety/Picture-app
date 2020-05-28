@@ -24,7 +24,11 @@ export default function PictureDisplay(props) {
           )}
         </div>
       </div>
-      <button className="re_search" onClick={() => props.resetSearch([])}>
+      <button
+        className="re_search"
+        data-testid="search_again"
+        onClick={() => props.resetSearch([])}
+      >
         Search for something else
       </button>
     </div>
