@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SearchPictures from "./SearchPictures";
-import PictureDisplay from "./PictureDisplay";
+import Navbar from "../Navbar";
 import API from "../../API/api";
+import "./style.css";
 
 export default function Photos() {
   let [images, setImages] = useState([]);
@@ -39,17 +39,69 @@ export default function Photos() {
   }
 
   return !images.length ? (
-    <SearchPictures
-      searchQuery={searchQuery}
-      handleInputChange={handleInputChange}
-      handleClick={handleClick}
-      error={error}
-    />
+    <div>
+      <Navbar />
+      <div id="search_form">
+        <h4 className="search_title">Search below:</h4>
+        <hr />
+        <form>
+          <input
+            id="search_input"
+            value={searchQuery}
+            onChange={handleInputChange}
+            placeholder="search for..."
+            name="search"
+            type="text"
+            data-testid="search_input"
+          />
+          <button
+            id="search_button"
+            data-testid="search_button"
+            onClick={handleClick}
+          >
+            Get Pictures
+          </button>
+          <span className="error_message" data-testid="error_message">
+            {error}
+          </span>
+        </form>
+      </div>
+    </div>
   ) : (
-    <PictureDisplay
-      searchQuery={searchQuery}
-      images={images}
-      resetSearch={resetSearch}
-    />
+    <div>
+      <Navbar />
+      <div id="search_section">
+        <h3 className="search_title"> Pictures of {searchQuery} </h3>
+        <hr />
+        <div className="all_images">
+          {!images.length ? (
+            <p>Pictures do not exist in the db</p>
+          ) : (
+            images.map((image, index) => (
+              <div>
+                <a
+                  href={image.pageURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    className="pic"
+                    src={image.previewURL}
+                    alt="item to be shown"
+                  />
+                </a>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+      <button
+        className="re_search"
+        data-testid="search_again"
+        onClick={() => resetSearch([])}
+      >
+        Search for something else
+      </button>
+    </div>
   );
 }
