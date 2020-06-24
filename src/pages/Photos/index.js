@@ -74,25 +74,17 @@ export default function Photos() {
         <h3 className="search_title"> Pictures of {searchQuery} </h3>
         <hr />
         <div className="all_images">
-          {!images.length ? (
-            <p>Pictures do not exist in the db</p>
-          ) : (
-            images.map((image, index) => (
-              <div>
-                <a
-                  href={image.pageURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="pic"
-                    src={image.previewURL}
-                    alt="item to be shown"
-                  />
-                </a>
-              </div>
-            ))
-          )}
+          {images.map((image, index) => (
+            <div key={index}>
+              <a href={image.pageURL} target="_blank" rel="noopener noreferrer">
+                <img
+                  className="pic"
+                  src={image.previewURL}
+                  alt="item to be shown"
+                />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
       <button
