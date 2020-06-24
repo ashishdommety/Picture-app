@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar";
 import API from "../../API/api";
 import "./style.css";
 
@@ -40,7 +39,6 @@ export default function Photos() {
 
   return !images.length ? (
     <div>
-      <Navbar />
       <div id="search_form">
         <h4 className="search_title">Search below:</h4>
         <hr />
@@ -69,7 +67,6 @@ export default function Photos() {
     </div>
   ) : (
     <div>
-      <Navbar />
       <div id="search_section">
         <h3 className="search_title"> Pictures of {searchQuery} </h3>
         <hr />
